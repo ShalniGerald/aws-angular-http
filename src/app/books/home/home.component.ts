@@ -24,10 +24,10 @@ export class HomeComponent implements OnInit {
   }
  
   get() {
-    // this.booksService.get().subscribe((data) => {
-    //   console.log(data)
-    //   this.books = data.data;
-    // });
+    this.booksService.get().subscribe((data) => {
+      console.log(data)
+      this.books = data.data;
+    });
 
     // this.http.get<ApiResponse>("https://v7zqr09hdf.execute-api.us-east-1.amazonaws.com/dev/book-api")
     // .pipe(
@@ -38,21 +38,17 @@ export class HomeComponent implements OnInit {
     //   this.books = data;
     // })
 
-    this.http.get('https://v7zqr09hdf.execute-api.us-east-1.amazonaws.com/dev/book-api-auth',{
-      headers:new HttpHeaders({
-        "authorizationtoken":"shalni@12"
-      })
-    }).subscribe({
-      next:(data)=>{
-        console.log(data)
-      },
-      error:(err)=>{
-        console.log(err,"error")
-      },
-      complete:()=>{
-        console.log("completed")
-      }
-    })
+    // this.http.get('https://v7zqr09hdf.execute-api.us-east-1.amazonaws.com/dev/book-api-auth').subscribe({
+    //   next:(data)=>{
+    //     console.log(data)
+    //   },
+    //   error:(err)=>{
+    //     console.log(err,"error")
+    //   },
+    //   complete:()=>{
+    //     console.log("completed")
+    //   }
+    // })
   }
   delete(id:number) {
     this.booksService.delete(id).subscribe({
