@@ -1,0 +1,11 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Shalni Gerald",
+      "totalPages": 4,
+      "rating": 5,
+      "publishedDate": "2023-05-13"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <legend>Update Item</legend>
+    <form>
+      <div class="mb-3">
+        <label for="txtTitle" class="form-label">Title</label>
+        <input type="text" name="title" [(ngModel)] = "bookForm.title" class="form-control" id="txtTitle" />
+      </div>
+      <div class="mb-3">
+        <label for="txtPages" class="form-label">Total Pages</label>
+        <input type="number" name="pages" [(ngModel)] = "bookForm.totalPages" class="form-control" id="txtPages" />
+      </div>
+      <div class="mb-3">
+        <label for="txtRating" class="form-label">Rating</label>
+        <input type="number" name="rating" [(ngModel)] = "bookForm.rating" class="form-control" id="txtRating" />
+      </div>
+      <div class="mb-3">
+        <label for="txtDate" class="form-label">Published Date</label>
+        <input type="date" name="date" [(ngModel)] = "bookForm.publishedDate" class="form-control" id="txtDate" />
+      </div>
+      <button type="button" (click)="update()" class="btn btn-primary">Update</button>
+    </form>
+    <div class="alert alert-danger mt-2" *ngIf="error">
+      <h1>Error Occured</h1>
+      <p>{{exceptionMessage}}</p>
+    </div>
+  </div>
+
