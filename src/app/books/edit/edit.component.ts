@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Books } from '../books';
@@ -22,7 +23,8 @@ export class EditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router:Router,
-    private bookService: BooksService
+    private bookService: BooksService,
+    private http:HttpClient
   ) {}
  
   ngOnInit(): void {

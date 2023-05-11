@@ -22,13 +22,38 @@ export class HomeComponent implements OnInit {
  
     this.get();
   }
+
+  compareFn = (a:Books, b:Books) => {
+    if (a.id < b.id)
+      return -1;
+    if (a.id > b.id)
+      return 1;
+    return 0;
+  };
  
   get() {
-    this.booksService.get().subscribe((data) => {
+    this.booksService.get().pipe(
+      map(data=>{
+        return data.data.sort(this.compareFn)
+      })
+    ).subscribe((data) => {
       console.log(data)
-      this.books = data.data;
+      this.books = data;
     });
 
+    // Types of responses
+
+    // this.http.get<ApiResponse>("https://v7zqr09hdf.execute-api.us-east-1.amazonaws.com/dev/book-api",
+    // {
+    //   observe:"response"
+    // }
+    // ).subscribe({
+    //   next:(data)=>{
+    //     console.log(data)
+    //   }
+    // })
+
+    //RxJS operator
     // this.http.get<ApiResponse>("https://v7zqr09hdf.execute-api.us-east-1.amazonaws.com/dev/book-api")
     // .pipe(
     //   map(data=>data.data.filter(d=>d.rating>3))
@@ -38,6 +63,7 @@ export class HomeComponent implements OnInit {
     //   this.books = data;
     // })
 
+    // Pass Authorization token in headers
     // this.http.get('https://v7zqr09hdf.execute-api.us-east-1.amazonaws.com/dev/book-api-auth').subscribe({
     //   next:(data)=>{
     //     console.log(data)

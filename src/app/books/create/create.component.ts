@@ -26,12 +26,6 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {}
  
   create(){
-    let data={
-      id: 0,
-    title: 'dsgsf',
-    totalPages: 45,
-    publishedDate: '2022-09-08'
-    }
     // this.http.post("https://v7zqr09hdf.execute-api.us-east-1.amazonaws.com/dev/book-api",data).subscribe({
     //   next:(data)=>{
     //     console.log(data)
